@@ -8,7 +8,7 @@ export default function Home() {
   
 
   return (
-    <main className="relative h-[325vh] w-screen flex flex-col">
+    <main className="relative h-[350vh] w-screen flex flex-col">
       <MessageCycle />
       <FlyInScroll />
     </main>
