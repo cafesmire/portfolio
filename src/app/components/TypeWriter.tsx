@@ -19,14 +19,14 @@ export default function TypeWriter({message}:TypeProps){
                     return prevIndex;
                 }
             });
-         }, 100)
+         }, 75)
         return () => {
             clearInterval(interval.current!);
         }
     }, [message]);
     return(
-        <div>
+        <>
             {message.slice(0, messageIndex)}
-        </div>
+        </>
     );
 }

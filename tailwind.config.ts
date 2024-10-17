@@ -21,11 +21,11 @@ const config: Config = {
         'bounce-sm':{
           '0%,100%':{
             transform:'translateY(-5%)',
-            AnimationTimingFunction:'cubic-bezier(.17,.67,.83,.67)',
+            AnimationTimingFunction:'cubic-bezier(0.8,0,1,1)',
           },
           '50%':{
-            transform:'translateY(0)',
-            AnimationTimingFunction:'cubic-bezier(.17,.67,.83,.67)',
+            transform:'none',
+            AnimationTimingFunction:'cubic-bezier(0, 0, 0.2, 1)',
           }
         }
       }

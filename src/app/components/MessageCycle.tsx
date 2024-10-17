@@ -37,7 +37,7 @@ export default function MessageCycle() {
       }
     };
 
-    const interval = setInterval(cycleMessages, 4000);
+    const interval = setInterval(cycleMessages, 3000);
     return () => clearInterval(interval);
   }, [messageIndex, messages.length]);
 
@@ -68,14 +68,14 @@ export default function MessageCycle() {
             Explore projects that reflect my passion for problem-solving and continuous learning as I strive to create impactful solutions. 
             Take a look around, and discover how we can collaborate to bring ideas to life.
             </p>
-            <div className='relative w-full h-full mt-32 animate-bounce-sm'>
-              <div className='flex justify-center size-20 bg-gray-900 rounded-full'>
+            <div className='relative w-full h-full mt-40 animate-bounce-sm'>
+              <div className='flex justify-center size-14 bg-zinc-900 rounded-full'>
                 <Image 
                   src={'/images/down-arrow.svg'}
                   alt='scroll down'
-                  width={50}
-                  height={50}
-                  className=""
+                  width={60}
+                  height={60}
+                  className="mt-3"
                   />
               </div>
             </div>
