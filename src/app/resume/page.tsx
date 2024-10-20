@@ -4,7 +4,7 @@ export default function Resume(){
     const message = "hello";
     return(
         <div>
-            <TypeWriter message={message} />
+            <TypeWriter message={message} onComplete={()=>{}}/>
         </div>
     );
 }
