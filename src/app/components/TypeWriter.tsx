@@ -3,10 +3,9 @@ import { useState, useEffect, useRef } from 'react';
 
 interface TypeProps {
     message: string;
-    onComplete: () => void; // Add onComplete prop
 }
 
-export default function TypeWriter({ message, onComplete }: TypeProps) {
+export default function TypeWriter({ message}: TypeProps) {
     const [messageIndex, setMessageIndex] = useState(0);
     const interval = useRef<NodeJS.Timeout | null>(null);
 
@@ -23,17 +22,16 @@ export default function TypeWriter({ message, onComplete }: TypeProps) {
                     return prevIndex + 1;
                 } else {
                     clearInterval(interval.current!);
-                    onComplete(); // Call the onComplete function here
                     return prevIndex;
                 }
             });
-        }, 75);
+        }, 25);
 
         // Cleanup on unmount or when message changes
         return () => {
             clearInterval(interval.current!);
         };
-    }, [message, onComplete]);
+    }, [message]);
 
     return (
         <>
