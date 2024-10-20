@@ -41,7 +41,7 @@ export default function FlyInScroll(){
                     <h1 className='text-4xl'>Committed to Clean Code</h1>
                     {firstDivTranslate === 2 && (
                         <p className='text-3xl mt-5'>
-                            <TypeWriter message={firstDivDisplay}/>
+                            <TypeWriter message={firstDivDisplay} onComplete={()=>{}}/>
                         </p>
                     )
                     }  
@@ -53,7 +53,7 @@ export default function FlyInScroll(){
                     <h1 className='flex justify-end text-4xl'>Driven by Precision and Purpose</h1>
                     {secondDivTranslate === 2 && (
                         <p className='flex justify-end text-3xl mt-5'>
-                            <TypeWriter message={secondDivDisplay}/>
+                            <TypeWriter message={secondDivDisplay} onComplete={()=>{}}/>
                         </p>
                     )
                     } 
@@ -65,7 +65,7 @@ export default function FlyInScroll(){
                         <h1>Engineering Tomorrow&apos;s Possibilities</h1>
                         {thirdDivTranslate === 2 && (
                             <p className='text-3xl mt-5'>
-                                <TypeWriter message={thirdDivDisplay}/>
+                                <TypeWriter message={thirdDivDisplay} onComplete={()=>{}}/>
                             </p>
                         )
                         }                     
