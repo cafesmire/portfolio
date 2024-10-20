@@ -38,11 +38,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <nav className="w-full flex items-center justify-between p-2 bg-transparent">
             <DropdownMenu />
             <div className="flex justify-center items-center z-0">
-              <search>
-                <form>
-                  <input className="mx-4" name="fsrch" id="fsrch" placeholder="Search Website"/>
-                </form>
-              </search>
               <Link href={'/'}>
                 <Image 
                   src='/images/home_button.svg'
