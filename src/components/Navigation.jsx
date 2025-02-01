@@ -7,11 +7,9 @@ export default function Navigation({handleClick}) {
 
 	return (
 		<nav className="flex justify-between items-center p-3 bg-gray-700">
-			<div>
-				<button className="cursor-pointer" onClick={handleClick}>
-					<img src={menu} alt="" className="invert size-5" />
-				</button>
-			</div>
+			<button className="cursor-pointer" onClick={handleClick}>
+				<img src={menu} alt="" className="invert size-5" />
+			</button>
 			<h1>Navigation Bar</h1>
 			<div>
 				<div className='flex gap-3'>

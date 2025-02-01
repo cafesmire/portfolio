@@ -1,8 +1,7 @@
 
-
 export default function Contact() {
 
 	return (
-		<div>Contact</div>
+		<div className="flex-1 bg-fuchsia-900">Contact</div>
 	);
 }

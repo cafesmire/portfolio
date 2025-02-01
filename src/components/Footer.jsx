@@ -1,9 +1,9 @@
 export default function Footer(){
   return(
-    <footer>
-      <h1>Footer</h1>
-      <h1>Footer</h1>
-      <h1>Footer</h1>
+    <footer className="flex justify-evenly text-md">
+      <p>cafesmire@gmail.com</p>
+      <p>Full Stack Engineer</p>
+      <p>Chattanooga, TN</p>
     </footer>
 
   )
