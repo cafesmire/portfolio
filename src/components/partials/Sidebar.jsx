@@ -6,7 +6,7 @@ export default function Sidebar() {
       <h1 className="border-b-2">Welcome</h1>
       <ul>
         <li>
-          <Link to="about">About Me</Link>
+          <Link to="/about">About Me</Link>
         </li>
         <li>
           <Link to="projects">Projects</Link>
