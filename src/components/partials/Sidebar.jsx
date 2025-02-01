@@ -9,10 +9,10 @@ export default function Sidebar() {
           <Link to="/about">About Me</Link>
         </li>
         <li>
-          <Link to="projects">Projects</Link>
+          <Link to="/projects">Projects</Link>
         </li>
         <li>
-          <Link to='contact'>Contact</Link>
+          <Link to='/contact'>Contact</Link>
         </li>
       </ul>
     </div>
