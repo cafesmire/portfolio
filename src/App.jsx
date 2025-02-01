@@ -1,24 +1,28 @@
-import { useState } from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './components/Layout';
 import './App.css';
-import Navigation from './components/partials/Navigation.jsx';
-import Footer from './components/partials/Footer.jsx';
-import Sidebar from './components/partials/Sidebar.jsx';
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
 
-function App() {
-	const [sidebarOpen, setSidebarOpen] = useState(false);
+const router = createBrowserRouter([
+	{
+		path:'/',
+		element:<Layout/>,
+		children:[
+			{path:'', element:<Home/>},
+			{path:'about', element:<About/>},
+			{path:'projects', element:<Projects/>},
+			{path:'contact', element:<Contact/>},
+		]
+	},
+	{
 
-	return (
-		<main className="flex flex-col min-h-screen">
-			<Navigation handleButtonClick={() => setSidebarOpen(!sidebarOpen)} />
-			<div className="flex-1 relative">
-			{sidebarOpen && (
-				<Sidebar/>
-			)}
-				<h1>Content</h1>
-			</div>
-			<Footer />
-		</main>
-	);
+	},
+
+])
+
+export default function App(){
+	return <RouterProvider router={router}/>
 }
-
-export default App;

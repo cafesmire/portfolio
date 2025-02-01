@@ -1,15 +1,14 @@
-import { useState } from 'react';
-import menu from '../../assets/images/menu.svg';
-import home from '../../assets/images/home.svg';
-import github from '../../assets/images/github.svg';
+import {useState} from 'react';
+import menu from '../assets/images/menu.svg';
+import home from '../assets/images/home.svg';
+import github from '../assets/images/github.svg';
 
-
-export default function Navigation({handleButtonClick}) {
+export default function Navigation({handleClick}) {
 
 	return (
 		<nav className="flex justify-between items-center p-3 bg-gray-700">
 			<div>
-				<button className="cursor-pointer" onClick={handleButtonClick}>
+				<button className="cursor-pointer" onClick={handleClick}>
 					<img src={menu} alt="" className="invert size-5" />
 				</button>
 			</div>
@@ -24,6 +23,7 @@ export default function Navigation({handleButtonClick}) {
 					</a>
 				</div>
 			</div>
+
 		</nav>
 	);
 }
