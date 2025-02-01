@@ -2,15 +2,14 @@ import { useState } from 'react';
 import menu from '../../assets/images/menu.svg';
 import home from '../../assets/images/home.svg';
 import github from '../../assets/images/github.svg';
-import Sidebar from './Sidebar';
 
-export default function Navigation() {
-	const [open, setIsOpen] = useState(false);
+
+export default function Navigation({handleButtonClick}) {
 
 	return (
 		<nav className="flex justify-between items-center p-3 bg-gray-700">
-			<div className="relative">
-				<button className="cursor-pointer" onClick={() => setIsOpen(!open)}>
+			<div>
+				<button className="cursor-pointer" onClick={handleButtonClick}>
 					<img src={menu} alt="" className="invert size-5" />
 				</button>
 			</div>
@@ -25,7 +24,6 @@ export default function Navigation() {
 					</a>
 				</div>
 			</div>
-			{open && <Sidebar />}
 		</nav>
 	);
 }

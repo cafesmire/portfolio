@@ -1,15 +1,22 @@
+import { useState } from 'react';
 import './App.css';
-import Navigation from './components/partials/Navigation.jsx'
-import Footer from './components/partials/Footer.jsx'
+import Navigation from './components/partials/Navigation.jsx';
+import Footer from './components/partials/Footer.jsx';
+import Sidebar from './components/partials/Sidebar.jsx';
 
 function App() {
+	const [sidebarOpen, setSidebarOpen] = useState(false);
+
 	return (
 		<main className="flex flex-col min-h-screen">
-			<Navigation/>
-      <div className="bg-amber-500 flex-1">
+			<Navigation handleButtonClick={() => setSidebarOpen(!sidebarOpen)} />
+			<div className="flex-1 relative">
+			{sidebarOpen && (
+				<Sidebar/>
+			)}
 				<h1>Content</h1>
 			</div>
-			<Footer/>
+			<Footer />
 		</main>
 	);
 }
