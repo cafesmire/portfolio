@@ -1,26 +1,28 @@
-import {useState} from 'react';
-import Card from '../components/Card'
+import { useState } from 'react';
+import Card from '../components/Card';
+import image1 from '../assets/images/image1.jpg'
+import image2 from '../assets/images/image2.jpg'
+import image3 from '../assets/images/image3.jpg'
+import image4 from '../assets/images/image4.jpg'
 
-const repoProjects = [
-	'Flappy',
-	'Resume',
-	'Todo',
-	'Menu',
-]
+const images = [image1, image2, image3, image4];
+const repoProjects = ['Flappy', 'Resume', 'Todo', 'Menu'];
 
 export default function Projects() {
 	const [projects, setProjects] = useState(repoProjects);
-	const rotationAmount = repoProjects.map((_, idx) => 360/(idx+1));
-	console.log(rotationAmount);
+	const rotationAmount = repoProjects.map(
+		(_, idx) => Math.floor(360 / repoProjects.length) * idx
+	);
 	
+
 	return (
-		<div className="flex flex-1">
-			{projects.length > 0 && 
-				<ul className='flex flex-1 items-center justify-evenly'>
+		<div className='flex flex-col flex-1'>
+			{projects &&
+				<div className='relative flex-1 perspective-distant'>
 					{projects.map((item, idx) => {
-						return <Card key={idx} rotationAmount={rotationAmount[idx]}>{item}</Card> 
+						return <Card key={idx} name={item} rotationAmount={rotationAmount[idx]} image={images[idx]}/>
 					})}
-				</ul>
+				</div>
 			}
 		</div>
 	);
