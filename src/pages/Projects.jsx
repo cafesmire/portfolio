@@ -19,7 +19,7 @@ export default function Projects() {
 
 	return (
 		<div className="flex-1 flex">
-			<Carousel projects={projects}/>
+			<Carousel projects={projects} setProjects={setProjects}/>
 		</div>
 	);
 }
