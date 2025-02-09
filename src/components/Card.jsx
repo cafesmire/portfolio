@@ -1,9 +1,14 @@
-export default function Card({item}){
+export default function Card({item, rotation, zIndex}){
 
   return(
-    <div className='absolute top-[25%] left-[33%] w-[33%] h-[50%] flex flex-col p-5 text-center rounded-xl border-1 bg-amber-700'>
+    <div className='absolute top-[15%] left-[27%] w-lg flex flex-col p-5 text-center rounded-xl border-1 bg-amber-700'
+      style={{
+        transform: `rotateY(${rotation}deg) translateZ(600px)`,
+        zIndex: `${zIndex}`,
+      }}
+    >
       <h1>{item.name}</h1>
-      <img src={item.image} alt=""/>
+      <img className='aspect-square' src={item.image} alt=""/>
     </div>
   )
 }
