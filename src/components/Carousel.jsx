@@ -1,84 +1,63 @@
-import { useState } from "react";
-import Card from "./Card";
+import { useState } from 'react';
+import Card from './Card';
 
 export default function Carousel({ projects, setProjects }) {
-  const [isRotating, setIsRotating] = useState({
-    rotating: false,
-    direction: 'next',
-  });
+	const [isRotating, setIsRotating] = useState(false);
+	const [direction, setDirection] = useState(null);
+	console.log(isRotating);
 
-  function handleClick(e) {
-    if (isRotating.rotating) return;
-    setIsRotating((prev) => ({ ...prev, rotating: true }));
-    if (e.target.className.includes("previous")) {
-      setTimeout(() => {
-        setProjects((prev) => {
-          const newProject = [...prev];
-          newProject.unshift(newProject.pop());
-          return newProject;
-        });
-        setIsRotating((prev) => ({
-          ...prev,
-          rotating: false,
-          direction: "previous",
-        }));
-      }, 1500);
-    } else {
-      setTimeout(() => {
-        setProjects((prev) => {
-          const newProject = [...prev];
-          newProject.push(newProject.shift());
-          return newProject;
-        });
-        setIsRotating((prev) => ({
-          ...prev,
-          rotating: false,
-          direction: "next",
-        }));
-      }, 1500);
-    }
-  }
+	const handleClick = (e) => {
+		if (isRotating) return;
+		setIsRotating(true);
+		if (e.target.className.includes('previous')) {
+            setDirection('previous');
+			setTimeout(() => {
+				setProjects((prev) => {
+					const newView = [...prev];
+					newView.push(newView.shift());
+					return newView;
+				});
+				setIsRotating(false);
+			}, 1000);
+		} else if (e.target.className.includes('next')) {
+            setDirection('next');
+			setTimeout(() => {
+				setProjects((prev) => {
+					const newView = [...prev];
+					newView.unshift(newView.pop());
+					return newView;
+				});
+				setIsRotating(false);
+			}, 1000);
+		}
+	};
 
-  return (
-    <div className="relative flex-1 flex perspective-[3000px] bg-purple-950">
-      <button
-        className="previous size-8 bg-zinc-400 rounded-full absolute top-[50%] left-5 z-100"
-        onClick={handleClick}
-      >
-        &lt;
-      </button>
-      <button
-        className="previous size-8 bg-zinc-400 rounded-full absolute top-[50%] left-5 z-100"
-        onClick={handleClick}
-      >
-        &lt;
-      </button>
-      {projects.map((item, idx) => {
-        const rotation = Math.floor((360 / projects.length) * idx);
-        const zIndex = idx > 0 && idx < projects.length - 1 ? -idx : idx;
-        return (
-          <Card
-            item={item}
-            key={idx}
-            rotation={rotation}
-            zIndex={zIndex}
-            isRotating={isRotating.rotating}
-            direction={isRotating.direction}
-          />
-        );
-      })}
-      <button
-        className="next size-8 bg-zinc-400 rounded-full absolute top-[50%] right-5 z-100"
-        onClick={handleClick}
-      >
-        &gt;
-      </button>
-      <button
-        className="next size-8 bg-zinc-400 rounded-full absolute top-[50%] right-5 z-100"
-        onClick={handleClick}
-      >
-        &gt;
-      </button>
-    </div>
-  );
+	return (
+		<div className="carousel">
+			<button
+				className="previous absolute bg-zinc-500 px-2 py-2 rounded-full left-5"
+				onClick={handleClick}
+			>
+				&lt;
+			</button>
+			{projects.map((project, idx) => {
+				const rotation = (360 / projects.length) * idx;
+				return (
+					<Card
+						key={idx}
+						project={project}
+						rotation={rotation}
+						isRotating={isRotating}
+						direction={direction}
+					/>
+				);
+			})}
+			<button
+				className="next absolute bg-zinc-500 px-2 py-2 rounded-full right-5"
+				onClick={handleClick}
+			>
+				&gt;
+			</button>
+		</div>
+	);
 }

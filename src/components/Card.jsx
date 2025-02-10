@@ -1,27 +1,29 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
+import CardContext from './CardContext';
 
-export default function Card({item, rotation, zIndex, isRotating, direction}){
-  const [translate, setTranslate] = useState(0);
+export default function Card({ project, rotation, isRotating, direction }) {
+	const [translateX, setTranslateX] = useState(0);
 
-  useEffect(() => {
-    if(isRotating && direction){
-      setTranslate(direction === 'previous' ? -200 : 200);
-      return;
-    }
-    setTranslate(0);
-},[isRotating])
-  
+	useEffect(() => {
+      if(isRotating && direction){
+        setTranslateX(direction === 'previous' ? -100 :100);
+        return;
+      }
+      setTimeout(() => {
+        setTranslateX(0)
+      }, 500);
+	}, [isRotating, direction]);
 
-  return(
-    <div className='absolute top-[15%] left-[calc(50%-180px)] p-5 max-w-60 flex flex-col text-center rounded-xl border-1 bg-amber-700'
-      style={{
-        transform: `rotateY(${rotation}deg) translateZ(400px) translateX(${translate}px)`,
-        transition: 'transform 1s ease-in-out',
-        zIndex: `${zIndex}`,
-      }}
-    >
-      <h1>{item.name}</h1>
-      <img className='aspect-square' src={item.image} alt=""/>
-    </div>
-  )
+	return (
+		<div
+			className="card bg-zinc-600 rounded-xl border-1"
+			style={{
+				transform: `rotateY(${rotation+(translateX/4)}deg) translateZ(500px) translateX(${translateX}px)`,
+        transition: isRotating ? 'transform 1s ease-in-out' : 'transform .3s ease-in-out' 
+			}}
+		>
+			<h1>{project.name}</h1>
+			<img src={project.thumbnail} alt="" />
+		</div>
+	);
 }
