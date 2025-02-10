@@ -6,13 +6,13 @@ export default function Carousel({ projects, setProjects }) {
         if(e.target.className.includes('previous')){
             setProjects(prev => {
                 const newProject = [...prev];
-                newProject.push(newProject.shift());
+                newProject.unshift(newProject.pop());
                 return newProject;
             })
         }else{
             setProjects(prev => {
                 const newProject = [...prev];
-                newProject.unshift(newProject.pop());
+                newProject.push(newProject.shift());
                 return newProject;
             })
         }
