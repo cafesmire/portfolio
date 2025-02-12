@@ -25,7 +25,7 @@ export default function Card({ project, cardRotation }) {
 			onMouseLeave={() => handleFlip('project')}
 		>
 			{!flipped && (
-				<div>
+				<div className='flex flex-col gap-5'>
 					<div>
 						<h1>{project.name}</h1>
 					</div>
@@ -41,16 +41,16 @@ export default function Card({ project, cardRotation }) {
 			)}
 
 			{flipped && (
-				<div className="absolute top-1.5 right-1.5 p-2 z-10 flex flex-col gap-5 bg-zinc-800 rounded-xl"
+				<div className="absolute top-0 right-0 flex flex-col  h-full w-full p-2 gap-5 z-10 bg-zinc-800 rounded-2xl"
             style={{
               transform:`scale(-1,1)`,
               transition:'transform .5s ease-in'
             }}
         >
           <div>
-            <h1>{project.name}</h1>
+            <h1 className='border-b-1'>{project.name}</h1>
           </div>
-          <div><textarea name="details" id="details" cols={30} rows={12} className='text-sm'>{project.details}</textarea></div>
+          <div><textarea className='text-sm' cols={30} rows={12} defaultValue={project.details} readOnly></textarea></div>
         </div>
 			)}
 		</div>
