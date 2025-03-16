@@ -11,7 +11,6 @@ export default function Projects() {
 	const rotationAngle = 360 / projects.length;
 
 	const handleClick = (direction) => {
-		console.log(activeCard)
 		if (direction === 'previous') {
 			setActiveCard((prev) => (prev > 0 ? prev-1 : projects.length - 1));
 			setRotation((prev) => prev + rotationAngle);
@@ -23,25 +22,21 @@ export default function Projects() {
 
 	return (
 		<div className="relative flex-1 flex flex-col perspective-distant">
-			<div>
-				<button
-					className="absolute top-[50%] -translate-y-[50%] left-5 rounded-full px-5 cursor-pointer bg-zinc-600 z-10"
-					onClick={() => handleClick('previous')}
-				>
-					&lt;
-				</button>
-			</div>
+			<button
+				className="absolute top-[50%] -translate-y-[50%] left-5 rounded-full size-20 cursor-pointer bg-zinc-600 z-5"
+				onClick={() => handleClick('previous')}
+			>
+				&lt;
+			</button>
 			<ProjectContext.Provider value={{ rotation, activeCard, setActiveCard }}>
 				<Carousel projects={projects} />
 			</ProjectContext.Provider>
-			<div>
-				<button
-					className="absolute top-[50%] -translate-y-[50%] right-5 rounded-full px-5 cursor-pointer bg-zinc-600 z-10"
-					onClick={() => handleClick('next')}
-				>
-					&gt;
-				</button>
-			</div>
+			<button
+				className="absolute top-[50%] -translate-y-[50%] right-5 rounded-full size-20 cursor-pointer bg-zinc-600 z-5"
+				onClick={() => handleClick('next')}
+			>
+				&gt;
+			</button>
 		</div>
 	);
 }
