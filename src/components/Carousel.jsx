@@ -4,7 +4,7 @@ import Card from './Card';
 export default function Carousel({rotation, projects}) {
 
 	return (
-		<div className='carousel'
+		<div className='absolute size-full'
 				style={{
 					transform:`rotateY(${rotation}deg)`,
 					transformStyle:'preserve-3d',

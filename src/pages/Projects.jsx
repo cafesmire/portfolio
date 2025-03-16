@@ -16,13 +16,13 @@ export default function Projects() {
 	};
 
 	return (
-		<div className="relative flex-1 flex perspective-distant">
+		<div className="relative flex-1 flex flex-col perspective-distant">
       <div>
-        <button className='absolute top-[50%] left-5 rounded-full px-5 cursor-pointer bg-zinc-600 z-10' onClick={() => handleClick('previous')}>&lt;</button>
+        <button className='absolute top-[50%] -translate-y-[50%] left-5 rounded-full px-5 cursor-pointer bg-zinc-600 z-10' onClick={() => handleClick('previous')}>&lt;</button>
       </div>
 			<Carousel rotation={rotation} projects={projects} />
       <div>
-        <button className='absolute top-[50%] right-5 rounded-full px-5 cursor-pointer bg-zinc-600 z-10' onClick={() => handleClick('next')}>&gt;</button>
+        <button className='absolute top-[50%] -translate-y-[50%] right-5 rounded-full px-5 cursor-pointer bg-zinc-600 z-10' onClick={() => handleClick('next')}>&gt;</button>
       </div>
 		</div>
 	);

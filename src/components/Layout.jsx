@@ -10,7 +10,7 @@ export default function Layout() {
   return (
     <>
     <Navigation handleClick={() => setSidebarOpen((prev) => !prev)} />
-    <div className='relative flex-1'>
+    <div className='relative flex-1 flex flex-col'>
     <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <Outlet />
     </div>
