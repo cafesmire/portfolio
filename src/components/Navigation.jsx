@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import menu from '../assets/images/menu.svg';
-import home from '../assets/images/home.svg';
+import {menu, home} from '../assets/icons/';
+
 
 export default function Navigation({handleClick}) {
 
