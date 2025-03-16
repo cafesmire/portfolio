@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import Card from './Card';
+import {Card} from './'
 import ProjectContext from '../context/ProjectContext';
 
 export default function Carousel({ projects }) {

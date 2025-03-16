@@ -49,6 +49,7 @@ export default function Card({ idx, project, cardRotation }) {
 					<div className='grid grid-rows-[auto_auto] justify-items-center items-center p-5 gap-5 w-[300px] h-[400px]'>
 						<h3 className="border-b-1">{project.name}</h3>
 						<textarea
+							className='text-[1.5rem] bg-black size-full text-justify p-5 rounded-xl border-1 border-zinc-400'
 							cols={30}
 							rows={12}
 							defaultValue={project.details}

@@ -1,5 +1,5 @@
 import { act, useState } from 'react';
-import Carousel from '../components/Carousel';
+import {Carousel} from '../components';
 import defaultProjects from '../data/defaultProjects';
 import ProjectContext from '../context/ProjectContext';
 
